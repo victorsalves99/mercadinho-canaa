@@ -5,10 +5,10 @@ import logo from "../../img/logo-canaa.jpg";
 const Caixa = () => {
   const [carrinho, setCarrinho] = useState([]);
   const [produt, setProdut] = useState([]);
-  const [codigo, setCodigo] = useState();
+  const [codigo, setCodigo] = useState("");
   const [total, setTotal] = useState(0);
-  const [pago, setPago] = useState();
-  const [troco, setTroco] = useState();
+  const [pago, setPago] = useState(0);
+  const [troco, setTroco] = useState(0);
 
   useEffect(() => {
     const pegarproduto = async () => {
@@ -19,19 +19,23 @@ const Caixa = () => {
     };
     pegarproduto();
   }, []);
+  useEffect(() => {
+    if(pago) {
+      calcular()
+    }
+  },[pago])
 
   const adicionar = () => {
     let res = produt.filter((item) => item.codigo === codigo);
     console.log(res);
     setCarrinho((prev) => [...prev, res[0]]);
-    setCodigo("");
+    setCodigo("")
     let soma = total + Number(res[0].preco);
     setTotal(soma);
   };
   const calcular = () => {
     let sub = pago - total;
     setTroco(sub);
-    setPago("");
   };
 
   return (
@@ -74,7 +78,6 @@ const Caixa = () => {
               onChange={(ev) => setPago(ev.target.value)}
               value={pago}
             />
-            <button onClick={calcular}>Calcular</button>
           </label>
           <div>
             <span>Troco: </span>
