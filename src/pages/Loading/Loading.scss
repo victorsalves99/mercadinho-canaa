@@ -1,0 +1,27 @@
+.box_loading {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    img {
+        width: 100px;
+        animation: giro linear infinite 3s;
+    }
+    p {
+        font-size: 1.3rem;
+    }
+}
+
+
+
+@keyframes giro {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+
+    }
+}

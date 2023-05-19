@@ -1,0 +1,113 @@
+.box_caixa {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  .carrinho {
+    height: 80vh;
+    width: 350px;
+    padding: 1.3rem;
+    box-shadow: inset 0px 0px 45px #18181873;
+    border-radius: 10px;
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        font-family: sans-serif;
+    }
+    .compras {
+        font-size: 1.5rem;
+        margin-top: 3rem;
+        margin-left: 2rem;
+    }
+  }
+  .box_produto {
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: start;
+    .produto {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      img {
+        width: 200px;
+        margin-bottom: 4rem;
+      }
+      div {
+        span {
+            font-size: 2rem;
+        }
+      label {
+        display: flex;
+        width: 100%;
+        gap: 1rem;
+        
+        input {
+            font-size: 1.5rem;
+            padding: .5rem;
+            border-radius:5px;
+            outline: none;
+        }
+        button {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #d2d2d2;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+      }
+      
+      }
+    }
+    .resultados {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        div {
+            display: flex;
+            gap: 1rem;
+            span {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+            p {
+                font-size: 1.5rem;
+            }
+        }
+        label {
+            display: flex;
+            gap: 1rem;
+            span {
+                font-size: 1.5rem;
+                font-weight: bold;
+
+            }
+            input {
+                font-size: 1.3rem;
+                margin-left: 1rem;
+                width: 200px;
+
+            }
+            button {
+              font-size: 1.5rem;
+              padding: 5px;
+              border-radius: 5px;
+              cursor: pointer;
+            }
+        }
+    }
+    .finalizar {
+        button {
+            font-size: 2rem;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+  }
+}

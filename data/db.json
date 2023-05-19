@@ -1,3 +1,42 @@
 {
-  "produtos": []
+  "produtos": 
+  [
+    {
+      "id":1,
+      "nome":"Passa Tempo",
+      "codigo":"0605",
+      "preco":3.40
+ 
+    },
+    {
+      "id":2,
+      "nome":"Chocolate",
+      "codigo":"1999",
+      "preco":5
+ 
+    },
+    {
+      "id":3,
+      "nome":"Suco de laranja",
+      "codigo":"06051999",
+      "preco":4
+   
+
+    },
+    {
+      "id":4,
+      "nome":"Queijo",
+      "codigo":"061999",
+      "preco":3.40
+    
+
+    },
+    {
+      "id":5,
+      "nome":"presunto",
+      "codigo":"06",
+      "preco":30
+    
+    }
+  ]
 }
