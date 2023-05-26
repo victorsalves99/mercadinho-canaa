@@ -1,10 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+
+// importação de componentes
+import Home from "./pages/Home/Home";
+import Loading from "./pages/Loading/Loading";
+import Caixa from "./pages/Caixa/Caixa.jsx";
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <Loading />,
+  },
+  {
+    path:"/gerenciar",
+    element: <Caixa />,
+    errorElement: <Loading />,
+
+  }
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   // </React.StrictMode>,
-)
+);

@@ -1,28 +1,33 @@
-import "./Home.scss"
+import "./Home.scss";
 
-import logo from "../../img/logo-canaa.jpg"
+import { FaStore, FaClipboardList } from "react-icons/fa";
 
-
-
+import logo from "../../img/logo-canaa.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <main className="main">
-        <div className="box_logo">
-            <img src={logo} alt="logo do mercado nanaa" />
-        </div>
-        <div className="box_links">
-            <div className="login">
-                <img src="https://img.icons8.com/3d-fluency/94/manager--v4.png"/>
-                <h3>Vendedores</h3>
-            </div>
-            <div className="login">
-            <img src="https://img.icons8.com/3d-fluency/94/supplier.png"/>
-                <h3>Gerentes</h3>
-            </div>
-        </div>
-    </main>
-  )
-}
+      <div className="box_logo">
+        <img src={logo} alt="logo do mercado nanaa" />
+      </div>
+      <div className="box_links">
+        <Link to="./gerenciar" className="link">
+          <div className="login">
+            <FaStore className="icone" />
+            <h3>Vender</h3>
+          </div>
+        </Link>
 
-export default Home
+        <Link to="./loading" className="link">
+          <div className="login">
+            <FaClipboardList className="icone" />
+            <h3>Gerenciar</h3>
+          </div>
+        </Link>
+      </div>
+    </main>
+  );
+};
+
+export default Home;

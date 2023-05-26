@@ -1,113 +1,110 @@
-.box_caixa {
-  height: 100vh;
+.navBar {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  .carrinho {
-    height: 80vh;
-    width: 350px;
-    padding: 1.3rem;
-    box-shadow: inset 0px 0px 45px #18181873;
-    border-radius: 10px;
-    h2 {
-        text-align: center;
-        font-size: 2rem;
-        font-family: sans-serif;
-    }
-    .compras {
-        font-size: 1.5rem;
-        margin-top: 3rem;
-        margin-left: 2rem;
+  border-bottom: 2px solid black;
+  padding: 0 3rem;
+
+  .boxLogo {
+    .imgLogo {
+      height: 150px;
     }
   }
-  .box_produto {
-
+  .informacaoDoDia {
     display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    align-items: start;
-    .produto {
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-      img {
-        width: 200px;
-        margin-bottom: 4rem;
-      }
-      div {
-        span {
-            font-size: 2rem;
-        }
-      label {
-        display: flex;
-        width: 100%;
-        gap: 1rem;
-        
-        input {
-            font-size: 1.5rem;
-            padding: .5rem;
-            border-radius:5px;
-            outline: none;
-        }
-        button {
-            font-size: 1.2rem;
-            font-weight: bold;
-            background-color: #d2d2d2;
-            padding: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-      }
-      
-      }
+    align-items: center;
+    justify-content: end;
+    padding: 0 30px;
+
+    gap: 1rem;
+    h4 {
+      font-size: 1.3rem;
+      text-align: right;
     }
-    .resultados {
+    p {
+      font-weight: bold;
+      color: green;
+    }
+  }
+  button {
+    background: transparent;
+    font-size: 1.2rem;
+    font-weight: bold;
+    height: 60px;
+    padding: 0 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      color: #fff;
+      background-color: #0000ff;
+    }
+  }
+}
+.caixa {
+  .titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    padding: 1rem;
+    border-bottom: 2px solid #000;
+  }
+  .boxCarrinho {
+    width: 100vw;
+    display: flex;
+    padding: 60px 100px;
+    gap: 200px;
+    .comandos {
+      .Codigo {
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        div {
-            display: flex;
-            gap: 1rem;
-            span {
-                font-size: 1.5rem;
-                font-weight: bold;
-            }
-            p {
-                font-size: 1.5rem;
-            }
-        }
-        label {
-            display: flex;
-            gap: 1rem;
-            span {
-                font-size: 1.5rem;
-                font-weight: bold;
+        gap: 2rem;
+        margin-bottom: 2rem;
 
-            }
-            input {
-                font-size: 1.3rem;
-                margin-left: 1rem;
-                width: 200px;
-
-            }
-            button {
-              font-size: 1.5rem;
-              padding: 5px;
-              border-radius: 5px;
-              cursor: pointer;
-            }
+        span {
+          font-size: 3rem;
+          font-weight: bold;
         }
-    }
-    .finalizar {
-        button {
-            font-size: 2rem;
-            padding: 10px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
+        input {
+          font-size: 1.6rem;
+          padding: 5px 20px;
+          outline: none;
+          border-radius: 10px;
         }
+      }
+      p {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        span {
+          font-weight: normal;
+          color: green;
+        }
+      }
+      .recebido {
+        font-size: 1.5rem;
+        font-weight: bold;
+        input {
+          font-size: 1.3rem;
+          margin-left: 1rem;
+          margin-bottom: 2rem;
+          padding: 5px 15px;
+        }
+      }
+      button {
+        background-color: #fff;
+        font-size: 2rem;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: .5s;
+        &:hover {
+          background-color: #0000ff;
+          color: #fff;
+        }
+      }
     }
   }
 }
