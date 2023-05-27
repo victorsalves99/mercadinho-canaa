@@ -12,7 +12,7 @@ const Home = () => {
         <img src={logo} alt="logo do mercado nanaa" />
       </div>
       <div className="box_links">
-        <Link to="./gerenciar" className="link">
+        <Link to="./vender" className="link">
           <div className="login">
             <FaStore className="icone" />
             <h3>Vender</h3>

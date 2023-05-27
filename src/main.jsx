@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     errorElement: <Loading />,
   },
   {
-    path:"/gerenciar",
+    path:"/vender",
     element: <Caixa />,
     errorElement: <Loading />,
 

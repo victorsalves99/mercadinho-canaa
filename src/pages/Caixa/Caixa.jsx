@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 const Caixa = () => {
   // declarção de estados
+  const [produtos, setProdutos] = useState([]);
   const [carrinho, setCarrinho] = useState([]);
   const [cod, setCod] = useState("");
   const [total, setTotal] = useState(0);
@@ -19,7 +20,13 @@ const Caixa = () => {
 
   // carrega os produto ao abrir
   useEffect(() => {
-    setCarrinho(carrinho);
+    async function pegarDados() {
+      let dadosProdutos = await fetch("http://localhost:3000/produtos").then(
+        (res) => res.json()
+      );
+      setProdutos(dadosProdutos);
+    }
+    pegarDados();
   }, []);
   // calcura o troco
   useEffect(() => {
@@ -37,16 +44,20 @@ const Caixa = () => {
   // adiciona itens ao carrinho
   const addCarrinho = (ev) => {
     if (ev === "Enter") {
-      let produto = pro.find((item) => item.codigo === cod);
+      let produto = produtos.find((item) => item.codigo === cod);
       let produtoExiste = false;
       let localItem = 0;
+      if (produto === undefined) {
+        setCod("");
+        alert("Produto Não Encontrado!");
+        return;
+      }
       carrinho.forEach((item, index) => {
         if (produto.codigo === item.codigo) {
           localItem = index;
           produtoExiste = true;
         }
       });
-      console.log(produtoExiste);
       if (produtoExiste) {
         carrinho[localItem].quantidade += 1;
         carrinho[localItem].preco += produto.preco;
@@ -56,6 +67,7 @@ const Caixa = () => {
           preco: produto.preco,
           nome: produto.nome,
           codigo: produto.codigo,
+          id: produto.id,
         };
         setCarrinho((prev) => [...prev, item]);
       }
@@ -65,6 +77,36 @@ const Caixa = () => {
   // finalizar a compra
   const finalizarCompra = () => {
     // window.print()
+    carrinho.forEach((item) => {
+      async function pegarDadosEspecifico() {
+        let prevProduto = await fetch(
+          `http://localhost:3000/produtos/${item.id}`
+        ).then((res) => res.json());
+        console.log(prevProduto);
+        return prevProduto.quantidade;
+      }
+      async function mudarDadosEspecifico() {
+        let quantidade = await pegarDadosEspecifico();
+        console.log(quantidade);
+        let atualicao = quantidade - item.quantidade;
+        console.log(item.id);
+        await fetch(`http://localhost:3000/produtos/${item.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            preco: item.preco,
+            nome: item.nome,
+            codigo: item.codigo,
+            id: item.id,
+            quantidade: atualicao,
+          }),
+        });
+      }
+      mudarDadosEspecifico();
+    });
+
     window.alert("Obrigado Volte sempre");
     setVendaDia(total + vendaDia);
     setCarrinho([]);
@@ -129,48 +171,3 @@ const Caixa = () => {
 };
 
 export default Caixa;
-
-const pro = [
-  {
-    nome: "Presunto",
-    quantidade: 34,
-    preco: 32,
-    codigo: "1",
-  },
-  {
-    nome: "Queijo",
-    quantidade: 31,
-    preco: 33,
-    codigo: "2",
-  },
-  {
-    nome: "Pão",
-    quantidade: 3,
-    preco: 3,
-    codigo: "3",
-  },
-  {
-    nome: "Arroz",
-    quantidade: 24,
-    preco: 2,
-    codigo: "4",
-  },
-  {
-    nome: "Gaz",
-    quantidade: 100,
-    preco: 35,
-    codigo: "5",
-  },
-  {
-    nome: "Macarrão",
-    quantidade: 200,
-    preco: 4,
-    codigo: "6",
-  },
-  {
-    nome: "Coca-Cola",
-    quantidade: 344,
-    preco: 7,
-    codigo: "7",
-  },
-];
