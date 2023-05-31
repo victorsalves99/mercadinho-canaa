@@ -19,7 +19,7 @@ const Home = () => {
           </div>
         </Link>
 
-        <Link to="./loading" className="link">
+        <Link to="./gerenciar" className="link">
           <div className="login">
             <FaClipboardList className="icone" />
             <h3>Gerenciar</h3>

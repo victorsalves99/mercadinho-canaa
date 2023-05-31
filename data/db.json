@@ -1,32 +1,32 @@
 {
   "produtos": [
     {
-      "preco": 6.8,
+      "preco": 20,
       "nome": "Passa Tempo",
       "codigo": "3",
       "id": 1,
-      "quantidade": 28
+      "quantidade": 24
     },
     {
-      "preco": 20,
+      "preco": 60,
       "nome": "Chocolate",
       "codigo": "1",
       "id": 2,
-      "quantidade": 25
+      "quantidade": 21
     },
     {
-      "preco": 8,
+      "preco": 96,
       "nome": "Suco de laranja",
       "codigo": "2",
       "id": 3,
-      "quantidade": 28
+      "quantidade": 21
     },
     {
-      "preco": 3.4,
+      "preco": 13,
       "nome": "Queijo",
       "codigo": "4",
       "id": 4,
-      "quantidade": 29
+      "quantidade": 25
     },
     {
       "id": 5,
@@ -34,6 +34,27 @@
       "codigo": "5",
       "preco": 30,
       "quantidade": 30
+    },
+    {
+      "preco": 5,
+      "nome": "Detergente",
+      "codigo": "6",
+      "id": 6,
+      "quantidade": 38
+    },
+    {
+      "preco": 10,
+      "nome": "Leite Condenssado",
+      "codigo": "8",
+      "id": 7,
+      "quantidade": 8
+    },
+    {
+      "preco": 2,
+      "nome": "KitKat",
+      "codigo": "7",
+      "id": 8,
+      "quantidade": 59
     }
   ]
 }

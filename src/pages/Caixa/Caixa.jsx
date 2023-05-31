@@ -1,7 +1,8 @@
 // importação de imagens
 import logo from "../../img/logo-canaa.jpg";
 // importação de componentes
-import Carrinho from "../Carrinho/Carrinho";
+import Carrinho from "../../Components/Carrinho/Carrinho";
+import Loading from "../Loading/Loading";
 // importação de estilo
 import "./Caixa.scss";
 // importação de componente react
@@ -17,14 +18,17 @@ const Caixa = () => {
   const [recebido, setRecebido] = useState(0);
   const [troco, setTroco] = useState(0);
   const [vendaDia, setVendaDia] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   // carrega os produto ao abrir
   useEffect(() => {
     async function pegarDados() {
+      setLoading(true);
       let dadosProdutos = await fetch("http://localhost:3000/produtos").then(
         (res) => res.json()
       );
       setProdutos(dadosProdutos);
+      setLoading(false);
     }
     pegarDados();
   }, []);
@@ -77,6 +81,7 @@ const Caixa = () => {
   // finalizar a compra
   const finalizarCompra = () => {
     // window.print()
+    setLoading(true);
     carrinho.forEach((item) => {
       async function pegarDadosEspecifico() {
         let prevProduto = await fetch(
@@ -106,7 +111,7 @@ const Caixa = () => {
       }
       mudarDadosEspecifico();
     });
-
+    setLoading(false);
     window.alert("Obrigado Volte sempre");
     setVendaDia(total + vendaDia);
     setCarrinho([]);
@@ -117,56 +122,65 @@ const Caixa = () => {
   };
 
   return (
-    <div>
-      {/* navegção */}
-      <nav className="navBar">
-        <Link to="/" className="boxLogo">
-          <img src={logo} className="imgLogo" />
-        </Link>
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div>
+          {/* navegção */}
+          <nav className="navBar">
+            <Link to="/" className="boxLogo">
+              <img src={logo} className="imgLogo" />
+            </Link>
 
-        <div className="informacaoDoDia">
-          <h4>Faturamento do Dia:</h4>
-          <p>R$ {vendaDia}</p>
-        </div>
-        <button>Finalizar Dia</button>
-      </nav>
-      {/* caixa principal */}
-      <div className="caixa">
-        <div className="titulo">
-          <h2>CAIXA LIVRE</h2>
-        </div>
-        <div className="boxCarrinho">
-          <div className="carrinho">
-            <Carrinho produtos={carrinho} />
+            <div className="informacaoDoDia">
+              <h4>Faturamento do Dia:</h4>
+              <p>R$ {vendaDia}</p>
+            </div>
+            <button>Finalizar Dia</button>
+          </nav>
+          {/* caixa principal */}
+          <div className="caixa">
+            <div className="titulo">
+              <h2>CAIXA LIVRE</h2>
+            </div>
+            <div className="boxCarrinho">
+              <div className="carrinho">
+                <Carrinho produtos={carrinho} />
+              </div>
+              <div className="comandos">
+                <label
+                  className="Codigo"
+                  onKeyPress={(ev) => addCarrinho(ev.key)}
+                >
+                  <span>Codigo Do Produto</span>
+                  <input
+                    type="text"
+                    onChange={(ev) => setCod(ev.target.value)}
+                    value={cod}
+                  />
+                </label>
+                <p>
+                  Valor Total: <span>R${total}</span>
+                </p>
+                <label className="recebido">
+                  <span>Valor Recebido:</span>
+                  <input
+                    type="number"
+                    onChange={(ev) => setRecebido(ev.target.value)}
+                    value={recebido === 0 ? "" : recebido}
+                  />
+                </label>
+                <p>
+                  Troco: <span>R${troco}</span>
+                </p>
+                <button onClick={finalizarCompra}>Finalizar Compra</button>
+              </div>
+            </div>
           </div>
-          <div className="comandos">
-            <label className="Codigo" onKeyPress={(ev) => addCarrinho(ev.key)}>
-              <span>Codigo Do Produto</span>
-              <input
-                type="text"
-                onChange={(ev) => setCod(ev.target.value)}
-                value={cod}
-              />
-            </label>
-            <p>
-              Valor Total: <span>R${total}</span>
-            </p>
-            <label className="recebido">
-              <span>Valor Recebido:</span>
-              <input
-                type="number"
-                onChange={(ev) => setRecebido(ev.target.value)}
-                value={recebido === 0 ? "" : recebido}
-              />
-            </label>
-            <p>
-              Troco: <span>R${troco}</span>
-            </p>
-            <button onClick={finalizarCompra}>Finalizar Compra</button>
-          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
