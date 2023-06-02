@@ -39,7 +39,7 @@ const AddProduto = () => {
         <label>
           <span>Codigo:</span>
           <input
-            type="text"
+            type="number"
             value={codigo}
             onChange={(ev) => setCodigo(ev.target.value)}
           />
@@ -55,7 +55,7 @@ const AddProduto = () => {
         <label>
           <span>Quantidade:</span>
           <input
-            type="text"
+            type="number"
             value={quantidade}
             onChange={(ev) => setQuantidade(ev.target.value)}
           />
@@ -63,7 +63,7 @@ const AddProduto = () => {
         <label>
           <span>Preço:</span>
           <input
-            type="text"
+            type="number"
             value={preco}
             onChange={(ev) => setPreco(ev.target.value)}
           />

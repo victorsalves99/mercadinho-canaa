@@ -1,0 +1,23 @@
+.AtualizarProduto {
+    width: 100vw;
+    .box_links {
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        border-bottom: 2px solid #000;
+        margin: 0 40px;
+        .linkAtualizacao {
+            text-decoration: none;
+            color: #000;
+            font-size: 2rem;
+            &:hover {
+                color: #808080;
+            }
+        }
+        .active {
+            color: #0000ff;
+        }
+    }
+}

@@ -5,28 +5,21 @@
       "nome": "Passa Tempo",
       "codigo": "3",
       "id": 1,
-      "quantidade": 24
+      "quantidade": 23
     },
     {
-      "preco": 60,
       "nome": "Chocolate",
       "codigo": "1",
-      "id": 2,
-      "quantidade": 21
+      "preco": "15",
+      "quantidade": 2042,
+      "id": 2
     },
     {
       "preco": 96,
       "nome": "Suco de laranja",
       "codigo": "2",
       "id": 3,
-      "quantidade": 21
-    },
-    {
-      "preco": 13,
-      "nome": "Queijo",
-      "codigo": "4",
-      "id": 4,
-      "quantidade": 25
+      "quantidade": 24
     },
     {
       "id": 5,
@@ -40,14 +33,14 @@
       "nome": "Detergente",
       "codigo": "6",
       "id": 6,
-      "quantidade": 38
+      "quantidade": 37
     },
     {
-      "preco": 10,
       "nome": "Leite Condenssado",
       "codigo": "8",
-      "id": 7,
-      "quantidade": 8
+      "preco": 10,
+      "quantidade": 108,
+      "id": 7
     },
     {
       "preco": 2,

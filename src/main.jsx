@@ -11,6 +11,10 @@ import Error from "./pages/Error/Error";
 import Gerencia from "./pages/Gerencia/Gerencia";
 import Estoque from "./pages/Estoque/Estoque";
 import AddProduto from "./pages/AddProduto/AddProduto";
+import AtualizarProduto from "./pages/AtualizarProduto/AtualizarProduto";
+import AddEstoque from "./pages/AddEstoque/AddEstoque";
+import AtualizarPreco from "./pages/AtualizarPreco/AtualizarPreco";
+import Deletarproduto from "./pages/DeletarProduto/Deletarproduto";
 
 
 const router = createBrowserRouter([
@@ -43,10 +47,26 @@ const router = createBrowserRouter([
       },
       {
         path:"/gerenciar/atualizar",
-        element: <Caixa />,
+        element: <AtualizarProduto />,
         errorElement: <Error />,
+        children: [
+          {
+            path:"/gerenciar/atualizar",
+            element: <AddEstoque />,
+            errorElement: <Error />,
+          },
+          {
+            path:"/gerenciar/atualizar/mudarpreco",
+            element: <AtualizarPreco />,
+            errorElement: <Error />,
+          },
+        ]
       },
-      
+      {
+        path:"/gerenciar/DelProduto",
+        element: <Deletarproduto />,
+        errorElement: <Error />,
+      },      
     ]
 
   }

@@ -21,14 +21,15 @@
         .navegacao {
             font-size: 2rem;
             font-weight: bold;
-            color: #0000ff;
+            color: #000;
             text-decoration: none;
             &:hover {
-                color: #0000ff9f;
+                color: #808080;
             }
+            
         }
-    }
-    .gerencia_principal {
-
+        .active {
+            color: #0000ff;
+        }
     }
 }

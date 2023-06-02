@@ -1,5 +1,5 @@
 import "./Gerencia.scss";
-import { Link, Outlet } from "react-router-dom";
+import { Link,NavLink, Outlet } from "react-router-dom";
 
 import logo from "../../img/logo-canaa.jpg";
 
@@ -11,10 +11,10 @@ const Gerencia = () => {
         
       </header>
       <nav className="gerencia_navegacao">
-        <Link to="./" className="navegacao">Estoque</Link>
-        <Link to="./addProduto" className="navegacao">Add Produto</Link>
-        <Link to="./atualizar" className="navegacao">Atualizar produto</Link>
-        <Link to="./DelProduto" className="navegacao">Del produto</Link>
+        <NavLink to="./" className="navegacao">Estoque</NavLink>
+        <NavLink to="./addProduto" className="navegacao">Add Produto</NavLink>
+        <NavLink to="./atualizar" className="navegacao">Atualizar produto</NavLink>
+        <NavLink to="./DelProduto" className="navegacao">Del produto</NavLink>
 
       </nav>
       <section className="gerencia_principal">

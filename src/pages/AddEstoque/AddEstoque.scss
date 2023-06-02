@@ -1,0 +1,90 @@
+.addestoque {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  gap: 5rem;
+  .codigo {
+    width: 500px;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      span {
+        font-size: 2rem;
+      }
+      input {
+        width: 80%;
+        font-size: 1.5rem;
+        border-radius: 10px;
+        outline: none;
+        padding: 5px 15px;
+      }
+      button {
+        font-size: 1.5rem;
+        padding: 5px 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        &:hover {
+          background-color: #0000ff;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .cardProduto {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    padding: 20px 0;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 15px #000;
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .boxInput {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      border-radius: 10px;
+      span {
+        font-size: 1.5rem;
+      }
+      input {
+        width: 80%;
+        font-size: 1.5rem;
+        padding: 5px 15px;
+        border-radius: 10px;
+        outline: none;
+      }
+      button {
+        font-size: 1.5rem;
+        padding: 5px 15px;
+        cursor: pointer;
+        margin-top: 15px;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: .5s;
+        &:hover {
+          background-color: #0000ff;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
